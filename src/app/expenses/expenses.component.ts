@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Expense} from '../expense';
+import { EXPENSES} from '../mock-expenses';
 
 @Component({
   selector: 'app-expenses',
@@ -10,10 +11,14 @@ import { Expense} from '../expense';
 
 
 export class ExpensesComponent {
-  expense : Expense = {
-    id: 1,
-    name : "Internet"
-  };
+  expenses = EXPENSES; 
+
+  selectedExpense?: Expense;
+  
+  onSelect(expense: Expense): void {
+    this.selectedExpense = expense;
+  }
+
 }
 
 
