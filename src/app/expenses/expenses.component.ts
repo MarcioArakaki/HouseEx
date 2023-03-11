@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Expense} from '../expense';
-import { EXPENSES} from '../mock-expenses';
+import { ExpenseService } from '../expense.service';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-expenses',
@@ -10,13 +11,29 @@ import { EXPENSES} from '../mock-expenses';
 })
 
 
+
+
 export class ExpensesComponent {
-  expenses = EXPENSES; 
+  expenses: Expense[] = [];
 
   selectedExpense?: Expense;
+
+  constructor(private expenseService: ExpenseService, public messageService: MessageService) {
   
+  }
+  
+  ngOnInit(): void {
+    this.getExpenses();
+  }
+
+  getExpenses(): void{
+    this.expenseService.getExpenses()
+            .subscribe(expenses => this.expenses = expenses);
+  }
+
   onSelect(expense: Expense): void {
     this.selectedExpense = expense;
+    this.messageService.add(`ExpensesComponent: Selected expense id=${expense.name}`);
   }
 
 }

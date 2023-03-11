@@ -9,5 +9,5 @@ export const EXPENSES: Expense[] = [
     {id: 9, name: "HealthPlan"},
     {id: 10, name: "DogFood"},
     {id: 11, name: "DogBath"},
-    {id: 12, name: "Taxi"}
+    {id: 12, name: "Travels"}
 ]

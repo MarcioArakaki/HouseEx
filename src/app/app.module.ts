@@ -5,12 +5,16 @@ import { FormsModule } from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ExpensesComponent } from './expenses/expenses.component';
+import { MessagesComponent } from './messages/messages.component';
+import { ExpenseDetailComponent } from './expense-detail/expense-detail.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ExpensesComponent
+    ExpensesComponent,
+    MessagesComponent,
+    ExpenseDetailComponent
   ],
   imports: [
     BrowserModule,
