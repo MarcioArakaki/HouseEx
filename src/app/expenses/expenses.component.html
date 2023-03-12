@@ -1,10 +1,8 @@
 <h2>Expenes</h2>
 <ul class="expenses">
   <li *ngFor="let expense of expenses">
-    <button type="button" (click)="onSelect(expense)" [class.selected]="expense === selectedExpense">
-      <span class="badge">{{expense.id}}</span>
-      <span class="name">{{expense.name}}</span>
-    </button>
+    <a routerLink="/detail/{{expense.id}}">
+      <span class="badge">{{expense.id}}</span> {{expense.name}}
+    </a>
   </li>
 </ul>
-<app-expense-detail [expense]="selectedExpense"></app-expense-detail>

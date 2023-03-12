@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
+import { Location } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 import { Expense } from '../expense';
-import { MessageService } from '../message.service';
+import { ExpenseService } from '../expense.service';
 
 @Component({
   selector: 'app-expense-detail',
@@ -9,4 +11,26 @@ import { MessageService } from '../message.service';
 })
 export class ExpenseDetailComponent {
   @Input() expense?: Expense;
+
+
+  constructor(
+    private route: ActivatedRoute,
+    private expenseService: ExpenseService,
+    private location: Location
+) { }
+
+  ngOnInit(): void {
+    this.getExpense();
+  }
+
+  getExpense(): void{
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+
+    this.expenseService.getExpense(id)
+      .subscribe(expense => this.expense = expense); 
+  }
+
+  goBack() : void {
+    this.location.back();
+  }
 }

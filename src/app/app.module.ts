@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { ExpensesComponent } from './expenses/expenses.component';
 import { MessagesComponent } from './messages/messages.component';
 import { ExpenseDetailComponent } from './expense-detail/expense-detail.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { ExpenseDetailComponent } from './expense-detail/expense-detail.componen
     AppComponent,
     ExpensesComponent,
     MessagesComponent,
-    ExpenseDetailComponent
+    ExpenseDetailComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

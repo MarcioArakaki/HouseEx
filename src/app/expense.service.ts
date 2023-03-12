@@ -9,8 +9,14 @@ import { MessageService } from './message.service';
   providedIn: 'root'
 })
 export class ExpenseService {
-
+  
   constructor(private messageService: MessageService) { }
+
+  getExpense(id: number): Observable<Expense> {
+    const expense = EXPENSES.find(expense => expense.id === id)!;
+    this.messageService.add(`ExpenseService: fetched expense id=${id}`);
+    return of(expense);
+  }
 
   getExpenses(): Observable<Expense[]> {
     const expenses = of(EXPENSES);

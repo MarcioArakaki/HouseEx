@@ -31,10 +31,7 @@ export class ExpensesComponent {
             .subscribe(expenses => this.expenses = expenses);
   }
 
-  onSelect(expense: Expense): void {
-    this.selectedExpense = expense;
-    this.messageService.add(`ExpensesComponent: Selected expense id=${expense.name}`);
-  }
+
 
 }
 
