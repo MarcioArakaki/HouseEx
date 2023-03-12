@@ -21,6 +21,6 @@ export class DashboardComponent {
 
   GetExpenses(): void {
     this.expenseService.getExpenses()
-      .subscribe(expenses => this.expenses = expenses.slice(1,5));
+      .subscribe(expenses => this.expenses = expenses.slice(0,4));
   }
 }
