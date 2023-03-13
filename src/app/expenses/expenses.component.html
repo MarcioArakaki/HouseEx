@@ -6,3 +6,14 @@
     </a>
   </li>
 </ul>
+
+<div>
+  <label for="new-expense">Expense name:</label>
+  <input id="new-expense" #expenseName />
+  <label for="new-expense-value">Expense Value:</label>
+  <input id="new-expense-value" #expenseValue />
+
+  <button type="button" class="add-button" (click)="add(expenseName.value, +expenseValue.value); expenseName.value=''">
+    Add Expense
+  </button>
+</div>

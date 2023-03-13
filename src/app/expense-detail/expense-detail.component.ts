@@ -17,20 +17,28 @@ export class ExpenseDetailComponent {
     private route: ActivatedRoute,
     private expenseService: ExpenseService,
     private location: Location
-) { }
+  ) { }
 
   ngOnInit(): void {
     this.getExpense();
   }
 
-  getExpense(): void{
+  getExpense(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
 
     this.expenseService.getExpense(id)
-      .subscribe(expense => this.expense = expense); 
+      .subscribe(expense => this.expense = expense);
   }
 
-  goBack() : void {
+  goBack(): void {
     this.location.back();
+  }
+
+  save(): void {
+    if (this.expense) {
+      this.expenseService.updateExpense(this.expense)
+        .subscribe(() => this.goBack());
+    }
+
   }
 }

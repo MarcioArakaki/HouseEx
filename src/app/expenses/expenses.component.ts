@@ -30,7 +30,15 @@ export class ExpensesComponent {
     this.expenseService.getExpenses()
             .subscribe(expenses => this.expenses = expenses);
   }
-
+  
+  add(name : string, value: number): void {
+    name = name.trim();
+    if (!name) {return;}
+    this.expenseService.createExpense({ name, value } as Expense)
+      .subscribe(expense => {
+        this.expenses.push(expense);
+      });;
+  }
 
 
 }
