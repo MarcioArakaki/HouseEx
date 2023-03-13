@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Expense} from '../expense';
-import { ExpenseService } from '../expense.service';
-import { MessageService } from '../message.service';
+import { ExpenseService } from '../services/expense.service';
+import { MessageService } from '../services/message.service';
 
 @Component({
   selector: 'app-expenses',

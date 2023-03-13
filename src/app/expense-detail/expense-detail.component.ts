@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { Expense } from '../expense';
-import { ExpenseService } from '../expense.service';
+import { ExpenseService } from '../services/expense.service';
 
 @Component({
   selector: 'app-expense-detail',
